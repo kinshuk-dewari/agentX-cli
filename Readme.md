@@ -10,9 +10,15 @@
 * [ ] Complete Version 0
 * [ ] Integrate BullMQ and Redis
 * [ ] Complete Version 1
+* [ ] ADD Mermaid for creating good looking flowcharts
+
 
 ## Version 0
 ![alt text](./images/image.png)
 
 ## Version 1
 ![alt text](./images/image-1.png)
+
+
+## Execution UI
+![alt text](./images/agent-verbosity.png)
