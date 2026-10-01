@@ -15,6 +15,7 @@
 
 ## Version 0
 ![alt text](./images/image.png)
+**`in the diagram, the box below orchestrator is sandbox`**
 
 ## Version 1
 ![alt text](./images/image-1.png)
