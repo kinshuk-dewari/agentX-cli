@@ -25,10 +25,21 @@ const client = new OpenAI({
   baseURL: "https://integrate.api.nvidia.com/v1",
 });
 
-const message = await client.responses.create({
+const stream = await client.responses.create({
   model: values.model,
   input: [{ role: "user", content: values.prompt }],
-  max_output_tokens:400
+  max_output_tokens:400,
+  stream:true
 });
 
-console.log(message.output_text);
+
+
+for await (const event of stream) {
+  if (event.type === "response.output_text.delta") {
+    process.stdout.write(event.delta);
+  } else if (event.type === "response.completed") {
+    console.log("\nResponse completed.");
+  } else if (event.type === "error") {
+    console.error(event.message);
+  }
+}
