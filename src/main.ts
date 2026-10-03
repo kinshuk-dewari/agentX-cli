@@ -32,13 +32,11 @@ const stream = await client.responses.create({
   stream:true
 });
 
-
-
 for await (const event of stream) {
   if (event.type === "response.output_text.delta") {
     process.stdout.write(event.delta);
   } else if (event.type === "response.completed") {
-    console.log("\nResponse completed.");
+    console.log("\nResponse completed");
   } else if (event.type === "error") {
     console.error(event.message);
   }

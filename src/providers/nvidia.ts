@@ -19,6 +19,8 @@ if (!openai.apiKey) {
   throw new Error("NVIDIA_API_KEY is missing from .env");
 }
 
+
+
 type ExtendedDelta = {
   content?: string | null;
   reasoning_content?: string | null;
