@@ -21,6 +21,6 @@
     "typescript": "^7.0.2"
   },
   "bin": {
-    "mypi": "./bin/mypi.js"
+    "agentx": "./bin/agentx.js"
   }
 }

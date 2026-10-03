@@ -1,4 +1,11 @@
 # AgentX CLI
+```
+npm install
+npm link
+```
+starter commands 
+* agentx -p "Your_Prompt_Here"  
+* -p for prompt
 
 ### TODO
 

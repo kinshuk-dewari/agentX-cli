@@ -15,16 +15,20 @@ const { values } = parseArgs({
   },
 });
 
-if(!values.prompt) {
+if (!values.prompt) {
   console.error("Please provide a prompt using --prompt or -p");
   process.exit(1);
 }
 
-const client = new OpenAI();
-
-const message = await client.chat.completions.create({
-  model: values.model,
-  messages: [
-    { role: "user", content: values.prompt }
-  ]
+const client = new OpenAI({
+  apiKey: process.env.NVIDIA_API_KEY,
+  baseURL: "https://integrate.api.nvidia.com/v1",
 });
+
+const message = await client.responses.create({
+  model: values.model,
+  input: [{ role: "user", content: values.prompt }],
+  max_output_tokens:400
+});
+
+console.log(message.output_text);
