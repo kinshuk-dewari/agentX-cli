@@ -11,18 +11,21 @@ import type {
 function toOpenAI(messages: Message[]): OpenAI.Responses.ResponseInput {
   return messages.flatMap((m): OpenAI.Responses.ResponseInput => {
     if (m.role === "user") {
-      return [{ role: "user", content: m.content}];
+      return [{ role: "user", content: m.content }];
     }
 
     if (m.role === "assistant") {
-      const text = m.content.filter((b) => b.type === "text").map((b) => b.text).join("");
+      const text = m.content
+        .filter((b) => b.type === "text")
+        .map((b) => b.text)
+        .join("");
 
       const calls = m.content.filter((b) => b.type === "toolCall");
 
       const items: OpenAI.Responses.ResponseInput = [];
 
       if (text) {
-        items.push({ role: "assistant", content: text});
+        items.push({ role: "assistant", content: text });
       }
 
       for (const c of calls) {
@@ -56,6 +59,7 @@ export function createOpenAICompat(
   defaultModel: string,
 ): Provider {
   const client = new OpenAI({ baseURL, apiKey });
+  if (client) console.log("nvidia api connected");
 
   return {
     name,
@@ -75,7 +79,7 @@ export function createOpenAICompat(
               name: t.name,
               description: t.description,
               parameters: t.parameters,
-              strict:true
+              strict: true,
             }))
           : undefined,
       });
