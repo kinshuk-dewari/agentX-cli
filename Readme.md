@@ -11,13 +11,13 @@ starter commands
 
 * [o] Connect to the LLM API
 * [ ] write agent loop
-* [ ] Create the orchestration layer
+* [ ] Create tools : read, write, agents
 * [ ] Create the sandbox environment
-* [ ] Create read, write, agents
+* [ ] Create the orchestration layer
 * [ ] Complete Version 0
 * [ ] Integrate BullMQ and Redis
 * [ ] Complete Version 1
-* [ ] ADD Mermaid for creating good looking flowcharts
+<!-- * [ ] ADD Mermaid for creating good looking flowcharts -->
 
 
 ## Version 0
